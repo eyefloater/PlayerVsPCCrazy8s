@@ -123,11 +123,19 @@ public class RunGame {
 
 			// Player 1 - DISCARDING OR DRAWING
 			while (true) {
-				int choice = scan.nextInt() - 1;
+				String choice = scan.next();
+				int number;
+				try{
+				number= Integer.parseInt(choice);
+				}catch(Exception e){
+					System.out.print("Please enter a valid integer.");
+				continue;
+				}
+			    number += -1;
 				// makes sure input is not out of bounds of the size of the hand
-				if (choice > playerOneList.size()) {
+				if (number >= playerOneList.size()) {
 					printSelectionError();
-				} else if (choice == -1) {
+				} else if (number == -1) {
 					// if player can't discard, DRAW a card from stockpile, adds
 					// it to hand
 					System.out.print(playerOneName + " drew the "
@@ -136,7 +144,7 @@ public class RunGame {
 					break;
 				} else {
 					// or discards
-					Card dCard = playerOneList.get(choice);
+					Card dCard = playerOneList.get(number);
 
 					if (dCard.number.equals(tCard.number)
 							| dCard.suit.equals(tCard.suit)
