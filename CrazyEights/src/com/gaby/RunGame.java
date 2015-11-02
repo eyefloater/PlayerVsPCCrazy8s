@@ -10,7 +10,7 @@ public class RunGame {
 
 	public static void main(String[] args) {
 
-		System.out.println("WELCOME TO FULLY AUTOMATED CRAZY EIGHTS!");
+		System.out.println("WELCOME TO CRAZY EIGHTS!");
 		// creates deck
 		Deck deck = new Deck();
 
